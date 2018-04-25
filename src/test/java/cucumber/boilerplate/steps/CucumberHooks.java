@@ -45,8 +45,6 @@ public class CucumberHooks {
 	public static void tearDown() throws Exception {
 		ProjectSelenium projectSelenium = ProjectSeleniumUtil.getProjectSelenium();
 
-		projectSelenium.saveScreenshot();
-
 		WebDriver.Options manage = projectSelenium.manage();
 
 		manage.deleteAllCookies();
