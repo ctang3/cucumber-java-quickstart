@@ -60,10 +60,10 @@ public class ProjectRestUtil {
 
 		Response response = executor.execute(request);
 
-		return response.handleResponse(_faroResponseHandler);
+		return response.handleResponse(_projectResponseHandler);
 	}
 
-	private static final ProjectResponseHandler _faroResponseHandler =
+	private static final ProjectResponseHandler _projectResponseHandler =
 		new ProjectResponseHandler();
 
 }

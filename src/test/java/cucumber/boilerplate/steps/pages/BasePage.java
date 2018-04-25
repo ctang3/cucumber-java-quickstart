@@ -21,7 +21,7 @@ import cucumber.boilerplate.util.ProjectSeleniumUtil;
  * @author Cheryl Tang
  */
 public class BasePage {
-	//WebDriver declared once then inherited by all steps and pages
+
 	protected static final ProjectSelenium _projectSelenium =
 			ProjectSeleniumUtil.getProjectSelenium();
 

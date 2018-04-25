@@ -28,11 +28,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class CucumberHooks {
 
-	@Before //Runs before each scenario
+	@Before
 	public static void setUp() {
 		SeleniumUtil.getSelenium();
 
-		ProjectSelenium projectSelenium = ProjectSeleniumUtil.getProjectSelenium();
+		ProjectSelenium projectSelenium =
+			ProjectSeleniumUtil.getProjectSelenium();
 
 		WebDriver.Options options = projectSelenium.manage();
 
@@ -41,9 +42,10 @@ public class CucumberHooks {
 		timeouts.implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@After //Runs after each scenario
+	@After
 	public static void tearDown() throws Exception {
-		ProjectSelenium projectSelenium = ProjectSeleniumUtil.getProjectSelenium();
+		ProjectSelenium projectSelenium =
+			ProjectSeleniumUtil.getProjectSelenium();
 
 		WebDriver.Options manage = projectSelenium.manage();
 

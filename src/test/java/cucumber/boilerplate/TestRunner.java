@@ -42,32 +42,28 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 public class TestRunner {
 
-	@BeforeClass //Runs once before all tests
+	@BeforeClass
 	public static void setUpClass() {
-		//Where to store webdriver executables
 		System.setProperty("wdm.targetPath", "src/test/resources/webdriver");
 
-		//Which type of webdriver to use
 		WebDriverManager chromedriver = WebDriverManager.chromedriver();
 		chromedriver.setup();
 
-		//Set the initial URL for the driver
 		PropsUtil.set("portal.url", "http://localhost:8080");
 
-		//Set WebDriver properties in Liferay PropsValues
 		PropsUtil.set("browser.type", "chrome");
 		PropsUtil.set(
 			"selenium.chrome.driver.executable",
 			System.getProperty("webdriver.chrome.driver"));
 		PropsUtil.set("selenium.executable.dir.name", StringPool.BLANK);
 
-		//Time to explicitly wait while finding elements
 		PropsUtil.set("timeout.explicit.wait", "60");
 	}
 
-	@AfterClass //Runs once after all tests
+	@AfterClass
 	public static void tearDownClass() {
-		ProjectSelenium projectSelenium = ProjectSeleniumUtil.getProjectSelenium();
+		ProjectSelenium projectSelenium =
+			ProjectSeleniumUtil.getProjectSelenium();
 
 		projectSelenium.close();
 		projectSelenium.quit();

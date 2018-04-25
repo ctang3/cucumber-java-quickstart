@@ -49,6 +49,16 @@ public class NavigationSteps extends BasePage {
 	}
 
 	/**
+	 * Navigates to a URL.
+	 *
+	 * @param url the destination URL
+	 */
+	@Given("^I go to \"([^\"]*)\"$")
+	public void goToUrl(String url) {
+		_projectSelenium.get(url);
+	}
+
+	/**
 	 * Switches to the focused modal.
 	 */
 	@When("^I switch to the focused modal$")
@@ -74,16 +84,6 @@ public class NavigationSteps extends BasePage {
 
 		_projectSelenium.goBack();
 		targetLocator.defaultContent();
-	}
-
-	/**
-	 * Navigates to a URL.
-	 *
-	 * @param url the destination URL
-	 */
-	@Given("^I go to \"([^\"]*)\"$")
-	public void goToUrl(String url) {
-		_projectSelenium.get(url);
 	}
 
 }

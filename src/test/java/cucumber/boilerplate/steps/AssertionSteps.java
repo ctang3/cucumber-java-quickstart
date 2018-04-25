@@ -32,7 +32,10 @@ public class AssertionSteps extends BasePage {
 	 */
 	@Then("^I should see that the first result is \"([^\"]*)\"$")
 	public void assertFirstSearchResult(String resultTitle) throws Exception {
-		WebElement webElement = _projectSelenium.findElement("(//div[@class='rc'])[1]//a");
+		WebElement webElement = _projectSelenium.findElement(
+				"(//div[@class='rc'])[1]//a");
+
 		Assert.assertTrue(webElement.getText().equals(resultTitle));
 	}
+
 }
